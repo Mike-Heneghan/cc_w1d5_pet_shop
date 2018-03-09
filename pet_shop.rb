@@ -43,8 +43,17 @@ def find_pet_by_name(petshop, name)
       name_found[:name] = name
     end
   end
-  return name_found
+  return name_found unless name_found.empty?
 end
 
-def
+def remove_pet_by_name(petshop, name)
+ find_pet_by_name(petshop, name)
+  for pets in petshop[:pets]
+    if pets[:name] == name
+      i = petshop[:pets][:name]
+    # p  number = petshop[:pets].index(i)
+      # petshop[:pets].delete_at(number)
+    end
+  end
+  return petshop[:pets]
 end
