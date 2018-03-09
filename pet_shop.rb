@@ -23,3 +23,15 @@ end
 def stock_count(shop)
   shop[:pets].length
 end
+
+def pets_by_breed(petshop,type)
+  # need to create an array of the pets of the same breed.
+  # need the pet names in an array found from their value.
+  # could be worth having a for loop to search.
+  desired = []
+    for pets in petshop[:pets]
+      if pets[:breed] == type then desired.push(pets[:name])
+      end
+    end
+    return desired
+end
