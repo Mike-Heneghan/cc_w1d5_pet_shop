@@ -35,3 +35,16 @@ def pets_by_breed(petshop,type)
     end
     return desired
 end
+
+def find_pet_by_name(petshop, name)
+  name_found = Hash.new
+  for pets in petshop[:pets]
+    if pets[:name] == name
+      name_found[:name] = name
+    end
+  end
+  return name_found
+end
+
+def
+end
