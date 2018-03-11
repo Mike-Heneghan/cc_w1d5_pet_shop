@@ -71,5 +71,29 @@ def customer_can_afford_pet(customer, new_pet)
   return false if customer[:cash] <= new_pet[:price]
 end
 
-def sell_pet_to_customer(petshop, customer, pet)
+def sell_pet_to_customer(petshop, pet , customer)
+  # Can the pet be found?
+    if pet != nil
+      # Can the customer afford the pet?
+      afford = customer_can_afford_pet(customer, pet)
+      if afford == true
+         # Add it to his pets hash, decrease his cash balance.
+         add_pet_to_customer(customer, pet)
+         customer[:cash] -= pet[:price]
+         # Remove it from the petshop stock
+         remove_pet_by_name(petshop, pet[:name])
+         # Add pet sale value to petshop balance
+         value = pet[:price]
+         add_or_remove_cash(petshop, value)
+         # Add to pets sold
+         increase_pets_sold(petshop,1)
+       elsif afford == false
+         return nil
+       end
+    end
 end
+  # If the customer can afford
+    # Add it to his pets hash, decrease his cash balance.
+    # Remove it from the petshop stock
+  # If the customer cannot afford the pet
+    # reject the sale
