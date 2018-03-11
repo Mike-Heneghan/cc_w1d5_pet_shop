@@ -92,8 +92,5 @@ def sell_pet_to_customer(petshop, pet , customer)
        end
     end
 end
-  # If the customer can afford
-    # Add it to his pets hash, decrease his cash balance.
-    # Remove it from the petshop stock
-  # If the customer cannot afford the pet
-    # reject the sale
+
+# Remember that you have to know what form/class your inputs are in to make sure they are treated in the correct way.
