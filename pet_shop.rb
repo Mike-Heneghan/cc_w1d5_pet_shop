@@ -39,21 +39,21 @@ end
 def find_pet_by_name(petshop, name)
   name_found = Hash.new
   for pets in petshop[:pets]
-    if pets[:name] == name
-      name_found[:name] = name
+    if pets[:name] == name then name_found.merge!(pets)
     end
   end
   return name_found unless name_found.empty?
 end
 
 def remove_pet_by_name(petshop, name)
- find_pet_by_name(petshop, name)
-  for pets in petshop[:pets]
-    if pets[:name] == name
-      i = petshop[:pets][:name]
-    # p  number = petshop[:pets].index(i)
-      # petshop[:pets].delete_at(number)
-    end
-  end
-  return petshop[:pets]
+ pet_remove = find_pet_by_name(petshop, name)
+ petshop[:pets].delete(pet_remove)
+end
+
+#  As the test for remove_pet_by_name requires the whole pet hash it was neccessary to modufy the method to return the full hash not just the :name => "name".
+# When running the find_pet_by_name method the result is the full hash for that pet i.e. { name: "Arthur", pet_type: :dog, breed: "Husky", price: 900 }
+# The .delete method on petshop[pets] removes the pet and it's details from the resultant array of hashes.
+
+def add_pet_to_stock(petshop, new_pet)
+  petshop[:pets].push(new_pet)
 end
