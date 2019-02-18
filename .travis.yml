@@ -1,4 +1,4 @@
 language: ruby
 
 script:
-  - ruby pet_shop_spec.rb
+  - ruby specs/pet_shop_spec.rb
